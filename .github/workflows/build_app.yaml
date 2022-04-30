@@ -23,7 +23,7 @@ jobs:
       - name: Install npm
         run:  |
           ls docs/github_pages_app/
-          (cd docs/github_pages_app/personal-website && npm install && npm build)
+          (cd docs/github_pages_app/personal-website && npm install && npm run build)
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.3
