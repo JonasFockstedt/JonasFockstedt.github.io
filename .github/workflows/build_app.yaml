@@ -17,6 +17,9 @@ jobs:
         with:
           submodules: 'true'
 
+      - name: Update submodule
+        run: (cd docs/github_pages_app/ && git pull)
+
       - name: Install npm
         run:  |
           ls docs/github_pages_app/
