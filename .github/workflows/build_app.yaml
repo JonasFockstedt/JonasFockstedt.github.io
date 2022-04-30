@@ -19,7 +19,7 @@ jobs:
 
       - name: Install npm
         run:  |
-          ls docs/
+          ls docs/github_pages_app/
           (cd docs/github_pages_app/personal-website && npm install && npm build)
 
       - name: Deploy 🚀
