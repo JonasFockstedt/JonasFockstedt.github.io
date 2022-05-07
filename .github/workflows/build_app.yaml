@@ -28,8 +28,8 @@ jobs:
           ls docs/github_pages_app/
           (cd docs/github_pages_app/personal-website && npm install && npm run build)
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
-        with:
-          branch: main # The branch the action should deploy to.
-          folder: docs/github_pages_app/personal-website # The folder the action should deploy.
+      # - name: Deploy 🚀
+      #   uses: JamesIves/github-pages-deploy-action@v4.3.3
+      #   with:
+      #     branch: main # The branch the action should deploy to.
+      #     folder: docs/github_pages_app/personal-website # The folder the action should deploy.
