@@ -1,3 +1,3 @@
-[submodule "github_pages_app"]
-	path = docs/github_pages_app
-	url = git@github.com:JonasFockstedt/JonasFockstedt.github.io.git
+[submodule "docs/github_pages_app"]
+        path = docs/github_pages_app
+        url = git@github.com:JonasFockstedt/github_pages_app.git
