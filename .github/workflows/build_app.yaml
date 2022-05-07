@@ -28,6 +28,7 @@ jobs:
       - name: Build app
         run: |
           cd docs/github_pages_app/personal-website 
+          cat package.json
           npm run-script deploy
 
       - name: Deploy 🚀
