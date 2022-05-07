@@ -9,7 +9,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  Build-app:
+  Build-and-deploy-app:
+    concurrency: ci-${{ github.ref }} # For making multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,14 +19,20 @@ jobs:
           token: ${{ secrets.CI_TOKEN }}
           submodules: true
 
-      - name: Install npm
+      - name: Install dependencies
         run:  |
-          ls docs/
-          ls docs/github_pages_app/
-          (cd docs/github_pages_app/personal-website && npm install && npm run build)
+          cd docs/github_pages_app/personal-website 
+          npm ci
+          npm install
 
-      # - name: Deploy 🚀
-      #   uses: JamesIves/github-pages-deploy-action@v4.3.3
-      #   with:
-      #     branch: main # The branch the action should deploy to.
-      #     folder: docs/github_pages_app/personal-website # The folder the action should deploy.
+      - name: Build app
+        run: |
+          cd docs/github_pages_app/personal-website 
+          npm run-script deploy
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages # The branch the action should deploy to.
+          folder: docs/github_pages_app/personal-website/dist/personal-website # The folder the action should deploy.
