@@ -22,6 +22,7 @@ jobs:
 
       - name: Update submodule 
         run: |
+          ls docs/github_pages_app
           cd docs/github_pages_app/personal-website
           git submodule update --remote docs/github_pages_app
 
