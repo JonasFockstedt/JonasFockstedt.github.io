@@ -19,6 +19,12 @@ jobs:
           token: ${{ secrets.CI_TOKEN }}
           submodules: true
 
+
+      - name: Update submodule 
+        run: |
+          cd docs/github_pages_app/personal-website
+          git submodule update --remote docs/github_pages_app
+
       - name: Install dependencies
         run:  |
           cd docs/github_pages_app/personal-website 
