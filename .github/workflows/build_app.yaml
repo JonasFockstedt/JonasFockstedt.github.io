@@ -18,6 +18,10 @@ jobs:
           token: ${{ secrets.CI_TOKEN }}
           submodules: 'true'
 
+      - name: Update submodule
+        run: |
+          (git submodule init && git submodule update)
+
       - name: Install npm
         run:  |
           ls docs/
